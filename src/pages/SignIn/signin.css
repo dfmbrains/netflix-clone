@@ -1,3 +1,103 @@
-
+.auth {
+  height: 100vh;
+  position: relative;
+}
+.auth::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+}
+.auth__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.auth__box {
+  width: 23.5%;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #000000;
+  border-radius: 4px;
+  height: 65%;
+  padding: 3% 3% 0;
+}
+.auth__title {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 130%;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+  margin: 0 0 25px;
+}
+.auth__input {
+  border: none;
+  outline: none;
+  width: 100%;
+  background: #333333;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 130%;
+  color: #8C8C8C;
+  padding: 15px 10px 15px 20px;
+}
+.auth__input_margin {
+  margin: 16px 0 40px;
+}
+.auth__btn {
+  width: 100%;
+  background: #f90914;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.55);
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.1px;
+  color: #FFFFFF;
+  padding: 16px 0;
+  transition: 0.2s;
+}
+.auth__btn:hover {
+  background: #d20914;
+  transition: 0.2s;
+}
+.auth__link {
+  margin: 50px 0 0;
+  display: flex;
+  column-gap: 5px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.01em;
+  color: #737373;
+}
+.auth__link a {
+  color: #FFFFFF;
+  position: relative;
+}
+.auth__link a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 1px;
+  width: 0;
+  transition: 0.3s;
+  background: white;
+}
+.auth__link a:hover::after {
+  width: 100%;
+  transition: 0.3s;
+}
 
 /*# sourceMappingURL=signin.css.map */

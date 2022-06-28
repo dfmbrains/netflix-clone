@@ -1,3 +1,30 @@
-
+.header {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 3%;
+  width: 100%;
+  z-index: 1;
+}
+.header__btns {
+  display: flex;
+  column-gap: 40px;
+}
+.header__btns_s {
+  padding: 7px 16px;
+  background: #E50914;
+  border-radius: 3px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #FFFFFF;
+  border: none;
+  transition: 0.2s;
+}
+.header__btns_s:hover {
+  background: #bd0910;
+  transition: 0.2s;
+}
 
 /*# sourceMappingURL=header.css.map */
