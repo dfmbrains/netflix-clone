@@ -1,7 +1,7 @@
 import React from 'react';
 import './header.css';
 import logo from '../../assets/logo.png';
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 const Header = ({page}) => {
 
@@ -9,7 +9,9 @@ const Header = ({page}) => {
 
     return (
         <header className="header">
-            <img className="header__logo" src={logo} alt=""/>
+            <Link to="/">
+                <img cl assName="header__logo" src={logo} alt=""/>
+            </Link>
             {page ? <div className="header__btns">
                 {/*<select className="header__btns_l">*/}
                 {/*    <option value="1">English</option>*/}
