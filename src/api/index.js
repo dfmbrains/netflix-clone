@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const instance = axios.create({
-    baseURL: `34.107.122.155/`,
+    baseURL: `http://34.107.122.155/`,
     headers: {
         Accept: "application/json",
         "Content-Type": "application/json; charset=UTF-8",
@@ -10,10 +10,13 @@ export const instance = axios.create({
 });
 
 export const instanceNotAuthorized = axios.create({
-    baseURL: `34.107.122.155/`,
+    baseURL: `http://34.107.122.155/`,
+    mode: 'no-cors',
+    credentials: 'include',
     headers: {
+        "Access-Control-Allow-Origin": "*",
         Accept: "application/json",
-        "Content-Type": "application/json; charset=UTF-8",
+        "Content-Type": "application/json; charset=UTF-8"
     },
 });
 

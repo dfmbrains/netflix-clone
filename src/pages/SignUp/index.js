@@ -21,15 +21,11 @@ const SignUp = () => {
     const registerFunc = (e) => {
         e.preventDefault();
         const registerData = {
-            email: [email],
-            password: [password],
-            password_confirm: [confirmPassword]
+            email: email,
+            password: password,
+            password_confirm: confirmPassword
         };
-        const formdata = new FormData;
-        formdata.append('email', registerData.email);
-        formdata.append('password', registerData.password);
-        formdata.append('password_confirm', registerData.password_confirm);
-        dispatch(registerAccount(formdata))
+        dispatch(registerAccount(registerData))
     };
 
     return (
