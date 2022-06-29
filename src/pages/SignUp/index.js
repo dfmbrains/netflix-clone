@@ -42,7 +42,7 @@ const SignUp = () => {
                                    className="auth__input auth__input_margin" type="password"/>
                             <input required onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Password"
                                    className="auth__input" type="password"/>
-                            <button type="submit" className="auth__btn">Sign In</button>
+                            <button type="submit" className="auth__btn">Sign Up</button>
                         </form>
                         <div className="auth__link">
                             New to Netflix?

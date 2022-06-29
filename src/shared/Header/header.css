@@ -7,6 +7,14 @@
   width: 100%;
   z-index: 2;
 }
+.header__menu {
+  font-size: 28px;
+  color: white;
+}
+.header__search {
+  font-size: 24px;
+  color: white;
+}
 .header__btns {
   display: flex;
   column-gap: 40px;

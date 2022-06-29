@@ -7,6 +7,16 @@
   width: 100%;
   z-index: 2;
 
+  &__menu {
+    font-size: 28px;
+    color: white;
+  }
+
+  &__search {
+    font-size: 24px;
+    color: white;
+  }
+
   &__btns {
     display: flex;
     column-gap: 40px;
