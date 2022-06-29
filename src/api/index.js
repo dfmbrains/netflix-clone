@@ -11,12 +11,10 @@ export const instance = axios.create({
 
 export const instanceNotAuthorized = axios.create({
     baseURL: `http://34.107.122.155/`,
-    mode: 'no-cors',
-    credentials: 'include',
     headers: {
-        "Access-Control-Allow-Origin": "*",
         Accept: "application/json",
-        "Content-Type": "application/json; charset=UTF-8"
+        'Content-Type': 'application/json',
+        "Access-Control-Allow-Origin": "http://localhost:3000/"
     },
 });
 

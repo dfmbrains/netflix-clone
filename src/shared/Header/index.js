@@ -10,7 +10,7 @@ const Header = ({page}) => {
     return (
         <header className="header">
             <Link to="/">
-                <img cl assName="header__logo" src={logo} alt=""/>
+                <img className="header__logo" src={logo} alt=""/>
             </Link>
             {page ? <div className="header__btns">
                 {/*<select className="header__btns_l">*/}
