@@ -23,10 +23,11 @@ export const Account = {
             .post(`account/register/`, data)
             .then((response) => {
                 console.log('success');
-                return response
+                return response;
             })
             .catch((error) => {
-                return error.response
-            })
+                console.log(error);
+                return error.response;
+            });
     }
 };

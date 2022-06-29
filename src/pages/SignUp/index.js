@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import Header from "../../shared/Header";
 import bg from '../../assets/bg.png';
 import {registerAccount} from "../../store/reducers/account";
+import {useDispatch} from "react-redux";
 
 const SignUp = () => {
     // const navigate = useNavigate();
@@ -15,14 +16,20 @@ const SignUp = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
+    const dispatch = useDispatch();
+
     const registerFunc = (e) => {
+        e.preventDefault();
         const registerData = {
-            email: email,
-            password: password,
-            password_confirm: confirmPassword
+            email: [email],
+            password: [password],
+            password_confirm: [confirmPassword]
         };
-        registerAccount(registerData)
-        console.log(registerData)
+        const formdata = new FormData;
+        formdata.append('email', registerData.email);
+        formdata.append('password', registerData.password);
+        formdata.append('password_confirm', registerData.password_confirm);
+        dispatch(registerAccount(formdata))
     };
 
     return (
@@ -33,13 +40,12 @@ const SignUp = () => {
                     <div className="auth__box">
                         <h2 className="auth__title">Sign Up</h2>
                         <form onSubmit={(e) => registerFunc(e)} className="auth__form">
-                            <input onChange={(e) => setEmail(e.target.value)} placeholder="Email or phone number"
-                                   className="auth__input" type="text"/>
-                            <input onChange={(e) => setPassword(e.target.value)} placeholder="Password"
+                            <input required onChange={(e) => setEmail(e.target.value)}
+                                   placeholder="Email or phone number" className="auth__input" type="text"/>
+                            <input required onChange={(e) => setPassword(e.target.value)} placeholder="Password"
                                    className="auth__input auth__input_margin" type="password"/>
-                            <input onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Password"
-                                   className="auth__input"
-                                   type="password"/>
+                            <input required onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Password"
+                                   className="auth__input" type="password"/>
                             <button type="submit" className="auth__btn">Sign In</button>
                         </form>
                         <div className="auth__link">

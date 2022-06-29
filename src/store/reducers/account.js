@@ -9,8 +9,8 @@ const account = (state = initialState, action) => {
         case "POST_REGISTER": {
             return {
                 ...state,
-                registerData: action.data
-            }
+                registerData: action.data,
+            };
         }
         default:
             return state
@@ -20,6 +20,7 @@ const account = (state = initialState, action) => {
 export const setRegisterAccount = (data) => ({type: "POST_REGISTER", data});
 
 export const registerAccount = (data) => (dispatch) => {
+    console.log(data);
     Account.postRegister(data).then((response) => {
         dispatch(setRegisterAccount({data: response.data}))
     })
