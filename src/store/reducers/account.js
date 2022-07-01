@@ -20,7 +20,6 @@ const account = (state = initialState, action) => {
 export const setRegisterAccount = (data) => ({type: "POST_REGISTER", data});
 
 export const registerAccount = (data) => (dispatch) => {
-    console.log(data);
     Account.postRegister(data).then((response) => {
         dispatch(setRegisterAccount({data: response.data}))
     })

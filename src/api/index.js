@@ -11,11 +11,11 @@ export const instance = axios.create({
 
 export const instanceNotAuthorized = axios.create({
     baseURL: `http://34.107.122.155/`,
-    headers: {
-        Accept: "application/json",
-        'Content-Type': 'application/json',
-        "Access-Control-Allow-Origin": "http://localhost:3000/"
-    },
+    // headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json; charset=UTF-8",
+    //     "Access-Control-Allow-Origin": "*"
+    // },
 });
 
 export const Account = {
@@ -23,11 +23,24 @@ export const Account = {
         return instanceNotAuthorized
             .post(`account/register/`, data)
             .then((response) => {
-                console.log('success');
+                localStorage.setItem("token", "token");
                 return response;
             })
             .catch((error) => {
-                console.log(error);
+                alert(error)
+                return error.response;
+            });
+    }
+};
+
+export const Categories = {
+    getCategories() {
+        return instanceNotAuthorized
+            .get(`category/`)
+            .then((response) => {
+                return response;
+            })
+            .catch((error) => {
                 return error.response;
             });
     }
