@@ -6,13 +6,14 @@ import {useDispatch, useSelector} from "react-redux";
 import {getCategories} from "../../store/reducers/categories";
 
 const HomeApp = () => {
+
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getCategories())
     }, []);
     const {categories} = useSelector(({categories}) => categories);
     const categoriesData = categories?.data;
-    console.log(categoriesData);
+
     return (
         <>
             <section className="preview">
@@ -32,319 +33,49 @@ const HomeApp = () => {
             </section>
             <section className="rec">
                 <div className="container">
-                    {/*{categoriesData*/}
-                    {/*    ? categoriesData.map((category, categoryIdx) => (*/}
-                    {/*        <div className="rec__box">*/}
-                    {/*            <h2 className="rec__category">{category.title}</h2>*/}
-                    {/*            <div className="rec__box_list">*/}
-                    {/*                <div className="rec__box_relative">*/}
-                    {/*                    <div className="rec__box_item rec__box_item-first">*/}
-                    {/*                        <img src={previewImg} alt=""/>*/}
-                    {/*                        <div className="rec__box_item_info">*/}
-                    {/*                            <div className="rec__box_item_row">*/}
-                    {/*                                <div className="rec__box_item_action">*/}
-                    {/*                                    <i className="ri-play-fill"/>*/}
-                    {/*                                </div>*/}
-                    {/*                                <div className="rec__box_item_action">*/}
-                    {/*                                    <i className="ri-heart-add-line"/>*/}
-                    {/*                                </div>*/}
-                    {/*                            </div>*/}
-                    {/*                            <h3 className="rec__box_item-title">Бриджертоны</h3>*/}
-                    {/*                            <p className="rec__box_item-category">Comedy</p>*/}
-                    {/*                        </div>*/}
-                    {/*                    </div>*/}
-                    {/*                </div>*/}
-                    {/*                <div className="rec__box_relative">*/}
-                    {/*                    <div className="rec__box_item">*/}
-                    {/*                        <img src={previewImg} alt=""/>*/}
-                    {/*                        <div className="rec__box_item_info">*/}
-                    {/*                            <div className="rec__box_item_row">*/}
-                    {/*                                <div className="rec__box_item_action">*/}
-                    {/*                                    <i className="ri-play-fill"/>*/}
-                    {/*                                </div>*/}
-                    {/*                                <div className="rec__box_item_action">*/}
-                    {/*                                    <i className="ri-heart-add-line"/>*/}
-                    {/*                                </div>*/}
-                    {/*                            </div>*/}
-                    {/*                            <h3 className="rec__box_item-title">Бриджертоны</h3>*/}
-                    {/*                            <p className="rec__box_item-category">Comedy</p>*/}
-                    {/*                        </div>*/}
-                    {/*                    </div>*/}
-                    {/*                </div>*/}
-                    {/*            </div>*/}
-                    {/*        </div>*/}
-                    {/*    )) : ''*/}
-                    {/*}*/}
-                    <div className="rec__box">
-                        <h2 className="rec__category">Comedy</h2>
-                        <div className="rec__box_list">
-                            <div className="rec__box_relative">
-                                <div className="rec__box_item rec__box_item-first">
-                                    <img src={previewImg} alt=""/>
-                                    <div className="rec__box_item_info">
-                                        <div className="rec__box_item_row">
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-play-fill"/>
-                                            </div>
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-heart-add-line"/>
+                    {categoriesData
+                        ? categoriesData.map((category, categoryIdx) => (
+                            <div key={categoryIdx} className="rec__box">
+                                <h2 className="rec__category">{category.title}</h2>
+                                <div className="rec__box_list">
+                                    <div className="rec__box_relative">
+                                        <div className="rec__box_item rec__box_item-first">
+                                            <img src={previewImg} alt=""/>
+                                            <div className="rec__box_item_info">
+                                                <div className="rec__box_item_row">
+                                                    <div className="rec__box_item_action">
+                                                        <i className="ri-play-fill"/>
+                                                    </div>
+                                                    <div className="rec__box_item_action">
+                                                        <i className="ri-heart-add-line"/>
+                                                    </div>
+                                                </div>
+                                                <h3 className="rec__box_item-title">Бриджертоны</h3>
+                                                <p className="rec__box_item-category">Comedy</p>
                                             </div>
                                         </div>
-                                        <h3 className="rec__box_item-title">Бриджертоны</h3>
-                                        <p className="rec__box_item-category">Comedy</p>
+                                    </div>
+                                    <div className="rec__box_relative">
+                                        <div className="rec__box_item">
+                                            <img src={previewImg} alt=""/>
+                                            <div className="rec__box_item_info">
+                                                <div className="rec__box_item_row">
+                                                    <div className="rec__box_item_action">
+                                                        <i className="ri-play-fill"/>
+                                                    </div>
+                                                    <div className="rec__box_item_action">
+                                                        <i className="ri-heart-add-line"/>
+                                                    </div>
+                                                </div>
+                                                <h3 className="rec__box_item-title">Бриджертоны</h3>
+                                                <p className="rec__box_item-category">Comedy</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="rec__box_relative">
-                                <div className="rec__box_item rec__box_item-first">
-                                    <img src={previewImg} alt=""/>
-                                    <div className="rec__box_item_info">
-                                        <div className="rec__box_item_row">
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-play-fill"/>
-                                            </div>
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-heart-add-line"/>
-                                            </div>
-                                        </div>
-                                        <h3 className="rec__box_item-title">Бриджертоны</h3>
-                                        <p className="rec__box_item-category">Comedy</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="rec__box_relative">
-                                <div className="rec__box_item">
-                                    <img src={previewImg} alt=""/>
-                                    <div className="rec__box_item_info">
-                                        <div className="rec__box_item_row">
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-play-fill"/>
-                                            </div>
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-heart-add-line"/>
-                                            </div>
-                                        </div>
-                                        <h3 className="rec__box_item-title">Бриджертоны</h3>
-                                        <p className="rec__box_item-category">Comedy</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="rec__box_relative">
-                                <div className="rec__box_item">
-                                    <img src={previewImg} alt=""/>
-                                    <div className="rec__box_item_info">
-                                        <div className="rec__box_item_row">
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-play-fill"/>
-                                            </div>
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-heart-add-line"/>
-                                            </div>
-                                        </div>
-                                        <h3 className="rec__box_item-title">Бриджертоны</h3>
-                                        <p className="rec__box_item-category">Comedy</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="rec__box_relative">
-                                <div className="rec__box_item">
-                                    <img src={previewImg} alt=""/>
-                                    <div className="rec__box_item_info">
-                                        <div className="rec__box_item_row">
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-play-fill"/>
-                                            </div>
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-heart-add-line"/>
-                                            </div>
-                                        </div>
-                                        <h3 className="rec__box_item-title">Бриджертоны</h3>
-                                        <p className="rec__box_item-category">Comedy</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="rec__box">
-                        <h2 className="rec__category">Horror</h2>
-                        <div className="rec__box_list">
-                            <div className="rec__box_relative">
-                                <div className="rec__box_item rec__box_item-first">
-                                    <img src={previewImg} alt=""/>
-                                    <div className="rec__box_item_info">
-                                        <div className="rec__box_item_row">
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-play-fill"/>
-                                            </div>
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-heart-add-line"/>
-                                            </div>
-                                        </div>
-                                        <h3 className="rec__box_item-title">Бриджертоны</h3>
-                                        <p className="rec__box_item-category">Comedy</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="rec__box_relative">
-                                <div className="rec__box_item rec__box_item-first">
-                                    <img src={previewImg} alt=""/>
-                                    <div className="rec__box_item_info">
-                                        <div className="rec__box_item_row">
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-play-fill"/>
-                                            </div>
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-heart-add-line"/>
-                                            </div>
-                                        </div>
-                                        <h3 className="rec__box_item-title">Бриджертоны</h3>
-                                        <p className="rec__box_item-category">Comedy</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="rec__box_relative">
-                                <div className="rec__box_item">
-                                    <img src={previewImg} alt=""/>
-                                    <div className="rec__box_item_info">
-                                        <div className="rec__box_item_row">
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-play-fill"/>
-                                            </div>
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-heart-add-line"/>
-                                            </div>
-                                        </div>
-                                        <h3 className="rec__box_item-title">Бриджертоны</h3>
-                                        <p className="rec__box_item-category">Comedy</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="rec__box_relative">
-                                <div className="rec__box_item">
-                                    <img src={previewImg} alt=""/>
-                                    <div className="rec__box_item_info">
-                                        <div className="rec__box_item_row">
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-play-fill"/>
-                                            </div>
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-heart-add-line"/>
-                                            </div>
-                                        </div>
-                                        <h3 className="rec__box_item-title">Бриджертоны</h3>
-                                        <p className="rec__box_item-category">Comedy</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="rec__box_relative">
-                                <div className="rec__box_item">
-                                    <img src={previewImg} alt=""/>
-                                    <div className="rec__box_item_info">
-                                        <div className="rec__box_item_row">
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-play-fill"/>
-                                            </div>
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-heart-add-line"/>
-                                            </div>
-                                        </div>
-                                        <h3 className="rec__box_item-title">Бриджертоны</h3>
-                                        <p className="rec__box_item-category">Comedy</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="rec__box">
-                        <h2 className="rec__category">Drama</h2>
-                        <div className="rec__box_list">
-                            <div className="rec__box_relative">
-                                <div className="rec__box_item rec__box_item-first">
-                                    <img src={previewImg} alt=""/>
-                                    <div className="rec__box_item_info">
-                                        <div className="rec__box_item_row">
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-play-fill"/>
-                                            </div>
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-heart-add-line"/>
-                                            </div>
-                                        </div>
-                                        <h3 className="rec__box_item-title">Бриджертоны</h3>
-                                        <p className="rec__box_item-category">Comedy</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="rec__box_relative">
-                                <div className="rec__box_item rec__box_item-first">
-                                    <img src={previewImg} alt=""/>
-                                    <div className="rec__box_item_info">
-                                        <div className="rec__box_item_row">
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-play-fill"/>
-                                            </div>
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-heart-add-line"/>
-                                            </div>
-                                        </div>
-                                        <h3 className="rec__box_item-title">Бриджертоны</h3>
-                                        <p className="rec__box_item-category">Comedy</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="rec__box_relative">
-                                <div className="rec__box_item">
-                                    <img src={previewImg} alt=""/>
-                                    <div className="rec__box_item_info">
-                                        <div className="rec__box_item_row">
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-play-fill"/>
-                                            </div>
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-heart-add-line"/>
-                                            </div>
-                                        </div>
-                                        <h3 className="rec__box_item-title">Бриджертоны</h3>
-                                        <p className="rec__box_item-category">Comedy</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="rec__box_relative">
-                                <div className="rec__box_item">
-                                    <img src={previewImg} alt=""/>
-                                    <div className="rec__box_item_info">
-                                        <div className="rec__box_item_row">
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-play-fill"/>
-                                            </div>
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-heart-add-line"/>
-                                            </div>
-                                        </div>
-                                        <h3 className="rec__box_item-title">Бриджертоны</h3>
-                                        <p className="rec__box_item-category">Comedy</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="rec__box_relative">
-                                <div className="rec__box_item">
-                                    <img src={previewImg} alt=""/>
-                                    <div className="rec__box_item_info">
-                                        <div className="rec__box_item_row">
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-play-fill"/>
-                                            </div>
-                                            <div className="rec__box_item_action">
-                                                <i className="ri-heart-add-line"/>
-                                            </div>
-                                        </div>
-                                        <h3 className="rec__box_item-title">Бриджертоны</h3>
-                                        <p className="rec__box_item-category">Comedy</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        )) : ''
+                    }
                 </div>
             </section>
         </>

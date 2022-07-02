@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const instance = axios.create({
-    baseURL: `http://34.107.122.155/`,
+    baseURL: `https://hackaton.lekar.kg/`,
     headers: {
         Accept: "application/json",
         "Content-Type": "application/json; charset=UTF-8",
@@ -10,7 +10,7 @@ export const instance = axios.create({
 });
 
 export const instanceNotAuthorized = axios.create({
-    baseURL: `http://34.107.122.155/`,
+    baseURL: `https://hackaton.lekar.kg/`,
     // headers: {
     //     Accept: "application/json",
     //     "Content-Type": "application/json; charset=UTF-8",
@@ -35,7 +35,7 @@ export const Account = {
         return instanceNotAuthorized
             .post(`/account/login/`, data)
             .then((response) => {
-                localStorage.setItem("token", "token");
+                console.log(response);
                 return response
             })
             .catch((error) => {
