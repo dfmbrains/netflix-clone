@@ -3,19 +3,12 @@ import axios from "axios";
 export const instance = axios.create({
     baseURL: `https://hackaton.lekar.kg/`,
     headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json; charset=UTF-8",
-        // Authorization: `Bearer ${get_token()}`,
+        Authorization: `Token ${localStorage?.token}`,
     },
 });
 
 export const instanceNotAuthorized = axios.create({
     baseURL: `https://hackaton.lekar.kg/`,
-    // headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json; charset=UTF-8",
-    //     "Access-Control-Allow-Origin": "*"
-    // },
 });
 
 export const Account = {
@@ -33,9 +26,23 @@ export const Account = {
     },
     postLogin(data) {
         return instanceNotAuthorized
-            .post(`/account/login/`, data)
+            .post(`account/login/`, data)
             .then((response) => {
-                console.log(response);
+                localStorage.setItem("token", response?.data?.token);
+                window.location.href = '/app';
+                return response
+            })
+            .catch((error) => {
+                alert(error);
+                return error.response
+            })
+    },
+    postLogout() {
+        return instance
+            .post(`account/logout/`)
+            .then((response) => {
+                localStorage.removeItem("token");
+                window.location.href = '/signin';
                 return response
             })
             .catch((error) => {

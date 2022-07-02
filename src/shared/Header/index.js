@@ -2,10 +2,17 @@ import React from 'react';
 import './header.css';
 import logo from '../../assets/logo.png';
 import {Link, NavLink, useNavigate} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {logoutAccount} from "../../store/reducers/account";
 
 const Header = ({page}) => {
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const logoutFunc = () => {
+        dispatch(logoutAccount())
+    };
 
     return (
         <header className="header">
@@ -42,9 +49,9 @@ const Header = ({page}) => {
                                     <i className="ri-user-fill"/>
                                     <Link to={"/account"}>Аккаунт</Link>
                                 </li>
-                                <li className="header__user_item">
+                                <li onClick={() => logoutFunc()} className="header__user_item">
                                     <i className="ri-logout-box-r-line"/>
-                                    <Link to={"/"}>Выйти из Netflix</Link>
+                                    Выйти из Netflix
                                 </li>
                             </ul>
                         </div>

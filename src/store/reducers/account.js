@@ -2,7 +2,8 @@ import {Account} from "../../api";
 
 const initialState = {
     registerData: {},
-    loginData: {}
+    loginData: {},
+    logoutData: {},
 };
 
 const account = (state = initialState, action) => {
@@ -19,6 +20,12 @@ const account = (state = initialState, action) => {
                 loginData: action.data,
             };
         }
+        case "POST_LOGOUT": {
+            return {
+                ...state,
+                logoutData: action.data,
+            };
+        }
         default:
             return state
     }
@@ -26,6 +33,7 @@ const account = (state = initialState, action) => {
 
 export const setRegisterAccount = (data) => ({type: "POST_REGISTER", data});
 export const setLoginAccount = (data) => ({type: "POST_LOGIN", data});
+export const setLogoutAccount = (data) => ({type: "POST_LOGOUT", data});
 
 export const registerAccount = (data) => (dispatch) => {
     Account.postRegister(data).then((response) => {
@@ -35,6 +43,11 @@ export const registerAccount = (data) => (dispatch) => {
 export const loginAccount = (data) => (dispatch) => {
     Account.postLogin(data).then((response) => {
         dispatch(setLoginAccount({data: response.data}))
+    })
+};
+export const logoutAccount = () => (dispatch) => {
+    Account.postLogout().then((response) => {
+        dispatch(setLogoutAccount({data: response.data}))
     })
 };
 
