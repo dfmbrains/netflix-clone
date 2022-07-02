@@ -18,7 +18,7 @@ const SignUp = () => {
 
     const dispatch = useDispatch();
 
-    const registerFunc = (e) => {
+    const registerFunc = async (e) => {
         e.preventDefault();
         const registerData = {
             email: email,
@@ -26,9 +26,6 @@ const SignUp = () => {
             password_confirm: confirmPassword
         };
         dispatch(registerAccount(registerData));
-        if (localStorage.token) {
-            navigate('/app')
-        }
     };
 
     return (

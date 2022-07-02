@@ -23,7 +23,7 @@ export const Account = {
         return instanceNotAuthorized
             .post(`account/register/`, data)
             .then((response) => {
-                localStorage.setItem("token", "token");
+                window.location.href = '/signin';
                 return response;
             })
             .catch((error) => {
