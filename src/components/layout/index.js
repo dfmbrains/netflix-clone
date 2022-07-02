@@ -6,7 +6,7 @@ const Layout = () => {
     return (
         <>
             <Header page={'app'}/>
-            <main>
+            <main style={{background: '#141414'}}>
                 <Outlet/>
             </main>
         </>

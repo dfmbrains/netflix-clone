@@ -27,9 +27,21 @@ export const Account = {
                 return response;
             })
             .catch((error) => {
-                alert(error)
+                alert(error);
                 return error.response;
             });
+    },
+    postLogin(data) {
+        return instanceNotAuthorized
+            .post(`/account/login/`, data)
+            .then((response) => {
+                localStorage.setItem("token", "token");
+                return response
+            })
+            .catch((error) => {
+                alert(error);
+                return error.response
+            })
     }
 };
 

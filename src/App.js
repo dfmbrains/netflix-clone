@@ -6,17 +6,9 @@ import SignUp from "./pages/SignUp";
 import HomeApp from "./pages/HomeApp";
 import Layout from "./components/layout";
 import Home from "./pages/Home";
-import {useDispatch, useSelector} from "react-redux";
-import {getCategories} from "./store/reducers/categories";
 
 function App() {
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(getCategories())
-    }, []);
-    const {categories} = useSelector(({categories}) => categories);
-    const {data} = categories;
-    console.log(data);
+
     return (
         <Routes>
             <Route path={"/"} element={<Home/>}/>

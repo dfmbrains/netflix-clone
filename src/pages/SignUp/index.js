@@ -40,7 +40,7 @@ const SignUp = () => {
                         <h2 className="auth__title">Sign Up</h2>
                         <form onSubmit={(e) => registerFunc(e)} className="auth__form">
                             <input autoComplete={"on"} required onChange={(e) => setEmail(e.target.value)}
-                                   placeholder="Email or phone number" className="auth__input" type="text"/>
+                                   placeholder="Email" className="auth__input" type="text"/>
                             <input autoComplete={"on"} required onChange={(e) => setPassword(e.target.value)}
                                    placeholder="Password"
                                    className="auth__input auth__input_margin" type="password"/>
