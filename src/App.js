@@ -1,6 +1,6 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "remixicon/fonts/remixicon.css";
-import {Route, Routes} from "react-router";
+import {Route, Routes, useLocation} from "react-router";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import HomeApp from "./pages/HomeApp";
@@ -14,6 +14,11 @@ import Account from "./pages/Account";
 import Movie from "./pages/Movie";
 
 function App() {
+    const location = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location.pathname]);
 
     return (
         <Routes>
