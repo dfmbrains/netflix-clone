@@ -99,5 +99,39 @@ export const Content = {
             .catch((error) => {
                 return error.response
             })
+    },
+    getMovieById(id) {
+        return instanceNotAuthorized
+            .get(`movie/${id}/`)
+            .then((response) => {
+                return response
+            })
+            .catch((error) => {
+                return error.response
+            })
+    }
+};
+
+export const Comments = {
+    getComments() {
+        return instanceNotAuthorized
+            .get(`review/`)
+            .then((response) => {
+                return response
+            })
+            .catch((error) => {
+                return error.response
+            })
+    },
+    postComments(data) {
+        return instanceNotAuthorized
+            .post(`review/`)
+            .then((response) => {
+                return response
+            })
+            .catch((error) => {
+                alert(error);
+                return error.response
+            })
     }
 };

@@ -47,7 +47,8 @@ const HomeApp = () => {
                                 <div className="rec__box_list">
                                     {
                                         moviesData.map((movie, movieIdx) => (
-                                            <div onClick={() => navigate(`${movie.id}`)} className="rec__box_relative">
+                                            <div key={movieIdx} onClick={() => navigate(`movie/${movie.id}`)}
+                                                 className="rec__box_relative">
                                                 <div
                                                     className={movieIdx === 0 ? "rec__box_item rec__box_item-first" : "rec__box_item"}>
                                                     <img src={previewImg} alt=""/>

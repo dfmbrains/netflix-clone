@@ -1,0 +1,116 @@
+.movie {
+  padding: 120px 0 50px;
+}
+.movie__box {
+  display: flex;
+  justify-content: space-between;
+  box-shadow: #0a0a0a 0 0 8px;
+  margin: 0 0 150px;
+}
+.movie__img {
+  width: 45%;
+}
+.movie__img img {
+  width: 100%;
+}
+.movie__info {
+  width: 50%;
+  padding: 1% 2% 0.5% 0;
+}
+.movie__title {
+  color: white;
+  font-size: 36px;
+  border-bottom: 0.3px solid rgba(255, 255, 255, 0.3764705882);
+  padding: 0 0 5px;
+}
+.movie__subtitle {
+  color: white;
+  margin: 20px 0 30px;
+}
+.movie__btn {
+  padding: 0.8rem 1.6rem 0.9rem 1.8rem;
+  background: white;
+  line-height: 100%;
+  color: black;
+  border-radius: 4px;
+  font-weight: 500;
+  display: flex;
+  column-gap: 5px;
+  align-items: center;
+  font-size: 20px;
+}
+.movie__btn i {
+  font-size: 28px;
+}
+.movie__btn:hover {
+  background: #dadada;
+}
+.movie__video {
+  width: 60%;
+  height: 500px;
+  transition: 0.3s;
+}
+.movie__video_none {
+  height: 0;
+  width: 50%;
+  transition: 0.3s;
+}
+.movie__comments {
+  width: 38%;
+  height: 500px;
+  padding: 0.5% 2% 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.movie__comments_title {
+  color: white;
+  text-align: center;
+}
+.movie__comments_box {
+  height: 75%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.movie__comments_item {
+  display: flex;
+}
+.movie__comments_item:nth-child(even) {
+  justify-content: flex-end;
+}
+.movie__comments_item div {
+  background: #FFFFFF;
+  padding: 2% 2% 2.2%;
+  border-radius: 10px;
+  width: 80%;
+  color: #141414;
+  line-height: 120%;
+}
+.movie__comments_item p {
+  margin: 5px 0 0;
+}
+.movie__comments_item h3 {
+  font-size: 18px;
+  line-height: 100%;
+  display: inline;
+  border-bottom: 0.5px solid #000000;
+}
+.movie__comments_form {
+  display: flex;
+}
+.movie__comments_input {
+  font-size: 16px;
+  outline: none;
+  border: none;
+  width: 70%;
+  padding: 12.3px;
+}
+.movie__comments_btn {
+  width: 30%;
+  height: 43px;
+  border: 1px solid #FFFFFF;
+}
+
+/*# sourceMappingURL=movie.css.map */

@@ -1,7 +1,8 @@
 import {Content} from "../../api";
 
 const initialState = {
-    movies: {}
+    movies: {},
+    movieById: {}
 };
 
 const movies = (state = initialState, action) => {
@@ -12,16 +13,28 @@ const movies = (state = initialState, action) => {
                 movies: action.data,
             };
         }
+        case "GET_MOVIE_BY_ID": {
+            return {
+                ...state,
+                movieById: action.data,
+            };
+        }
         default:
             return state
     }
 };
 
 export const setMovies = (data) => ({type: "GET_MOVIES", data});
+export const setMoviesById = (data) => ({type: "GET_MOVIE_BY_ID", data});
 
 export const getMovies = () => (dispatch) => {
     Content.getMovies().then((response) => {
         dispatch(setMovies(response))
+    })
+};
+export const getMoviesById = (id) => (dispatch) => {
+    Content.getMovieById(id).then((response) => {
+        dispatch(setMoviesById(response))
     })
 };
 
