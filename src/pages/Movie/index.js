@@ -25,7 +25,7 @@ const Movie = () => {
             review: comment,
             product: id
         };
-        dispatch(postComments(commentData))
+        // dispatch(postComments(commentData))
     };
     return (
         <section className="movie">
