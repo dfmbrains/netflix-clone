@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
 import '../SignIn/signin.css';
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import Header from "../../shared/Header";
 import bg from '../../assets/bg.png';
 import {registerAccount} from "../../store/reducers/account";
 import {useDispatch} from "react-redux";
 
 const SignUp = () => {
-    const navigate = useNavigate();
     // const location = useLocation();
     //
     // const fromPage = location.state?.from?.pathname || '/';
@@ -18,14 +17,18 @@ const SignUp = () => {
 
     const dispatch = useDispatch();
 
-    const registerFunc = async (e) => {
+    const registerFunc = (e) => {
         e.preventDefault();
-        const registerData = {
-            email: email,
-            password: password,
-            password_confirm: confirmPassword
-        };
-        dispatch(registerAccount(registerData));
+        if (password === confirmPassword) {
+            const registerData = {
+                email: email,
+                password: password,
+                password_confirm: confirmPassword
+            };
+            dispatch(registerAccount(registerData));
+        } else {
+            alert('Пароли должны совпадать!')
+        }
     };
 
     return (
@@ -47,7 +50,7 @@ const SignUp = () => {
                             <button type="submit" className="auth__btn">Sign Up</button>
                         </form>
                         <div className="auth__link">
-                            New to Netflix?
+                            Have Netflix?
                             <Link to="/signin">Sign in now.</Link>
                         </div>
                     </div>

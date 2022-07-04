@@ -4,6 +4,8 @@ const initialState = {
     registerData: {},
     loginData: {},
     logoutData: {},
+    restorePasswordData: {},
+    confirmRestorePasswordData: {},
 };
 
 const account = (state = initialState, action) => {
@@ -26,6 +28,18 @@ const account = (state = initialState, action) => {
                 logoutData: action.data,
             };
         }
+        case "POST_RESTORE_PASSWORD": {
+            return {
+                ...state,
+                restorePasswordData: action.data,
+            };
+        }
+        case "POST_CONFIRM_RESTORE_PASSWORD": {
+            return {
+                ...state,
+                confirmRestorePasswordData: action.data,
+            };
+        }
         default:
             return state
     }
@@ -34,6 +48,8 @@ const account = (state = initialState, action) => {
 export const setRegisterAccount = (data) => ({type: "POST_REGISTER", data});
 export const setLoginAccount = (data) => ({type: "POST_LOGIN", data});
 export const setLogoutAccount = (data) => ({type: "POST_LOGOUT", data});
+export const setRestorePassword = (data) => ({type: "POST_RESTORE_PASSWORD", data});
+export const setConfirmRestorePassword = (data) => ({type: "POST_CONFIRM_RESTORE_PASSWORD", data});
 
 export const registerAccount = (data) => (dispatch) => {
     Account.postRegister(data).then((response) => {
@@ -43,6 +59,16 @@ export const registerAccount = (data) => (dispatch) => {
 export const loginAccount = (data) => (dispatch) => {
     Account.postLogin(data).then((response) => {
         dispatch(setLoginAccount({data: response.data}))
+    })
+};
+export const restorePassword = (data) => (dispatch) => {
+    Account.postRestorePassword(data).then((response) => {
+        dispatch(setRestorePassword({data: response.data}))
+    })
+};
+export const confirmRestorePassword = (data) => (dispatch) => {
+    Account.postConfirmRestorePassword(data).then((response) => {
+        dispatch(setConfirmRestorePassword({data: response.data}))
     })
 };
 export const logoutAccount = () => (dispatch) => {

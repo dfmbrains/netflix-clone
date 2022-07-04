@@ -1,28 +1,26 @@
 import React, {useState} from 'react';
-import './signin.css';
+import '../SignIn/signin.css';
 import {Link} from "react-router-dom";
 import Header from "../../shared/Header";
 import bg from '../../assets/bg.png';
 import {useDispatch} from "react-redux";
-import {loginAccount} from "../../store/reducers/account";
+import {restorePassword} from "../../store/reducers/account";
 
-const SignIn = () => {
+const RestorePassword = () => {
     // const location = useLocation();
 
     // const fromPage = location.state?.from?.pathname || '/';
 
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
     const dispatch = useDispatch();
 
     const loginFunc = (e) => {
         e.preventDefault();
-        const loginData = {
-            email: email,
-            password: password,
+        const restoreData = {
+            email: email
         };
-        dispatch(loginAccount(loginData));
+        dispatch(restorePassword(restoreData));
     };
 
     return (
@@ -31,21 +29,15 @@ const SignIn = () => {
             <main>
                 <section className="auth">
                     <div className="auth__box">
-                        <h2 className="auth__title">Sign In</h2>
+                        <h2 className="auth__title">Restore Password</h2>
                         <form onSubmit={(e) => loginFunc(e)} className="auth__form">
                             <input onChange={(e) => setEmail(e.target.value)} autoComplete={"on"}
-                                   placeholder="Email" className="auth__input" type="text"/>
-                            <input onChange={(e) => setPassword(e.target.value)} autoComplete={"on"}
-                                   placeholder="Password" className="auth__input auth__input_margin" type="password"/>
-                            <button type="submit" className="auth__btn">Sign In</button>
+                                   placeholder="Email" className="auth__input" type="email"/>
+                            <button type="submit" className="auth__btn">Confirm</button>
                         </form>
                         <div className="auth__link">
                             New to Netflix?
                             <Link to="/signup">Sign up now.</Link>
-                        </div>
-                        <div className="auth__link">
-                            Forgot password?
-                            <Link to="/re-account">Change now.</Link>
                         </div>
                     </div>
                     <img className={"auth__bg"} src={bg} alt=""/>
@@ -55,4 +47,4 @@ const SignIn = () => {
     );
 };
 
-export default SignIn;
+export default RestorePassword;

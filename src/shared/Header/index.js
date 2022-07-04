@@ -44,16 +44,18 @@ const Header = ({page}) => {
                         <div className="header__user">
                             <i className="header__user_i ri-user-fill"/>
                             <i className="header__user_i ri-arrow-down-s-fill"/>
-                            <ul className="header__user_menu">
-                                <li className="header__user_item">
-                                    <i className="ri-user-fill"/>
-                                    <Link to={"/account"}>Аккаунт</Link>
-                                </li>
-                                <li onClick={() => logoutFunc()} className="header__user_item">
-                                    <i className="ri-logout-box-r-line"/>
-                                    Выйти из Netflix
-                                </li>
-                            </ul>
+                            <div className="header__user_menu">
+                                <ul>
+                                    <li className="header__user_item">
+                                        <i className="ri-user-fill"/>
+                                        <Link to={"/account"}>Аккаунт</Link>
+                                    </li>
+                                    <li onClick={() => logoutFunc()} className="header__user_item">
+                                        <i className="ri-logout-box-r-line"/>
+                                        Выйти из Netflix
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </>

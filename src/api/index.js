@@ -16,9 +16,9 @@ export const Account = {
         return instanceNotAuthorized
             .post(`account/register/`, data)
             .then((response) => {
-                window.location.href = '/signin';
                 return response;
             })
+            .then(() => window.location.href = '/confirm')
             .catch((error) => {
                 alert(error);
                 return error.response;
@@ -29,9 +29,33 @@ export const Account = {
             .post(`account/login/`, data)
             .then((response) => {
                 localStorage.setItem("token", response?.data?.token);
-                window.location.href = '/app';
                 return response
             })
+            .then(() => window.location.href = '/app')
+            .catch((error) => {
+                alert(error);
+                return error.response
+            })
+    },
+    postRestorePassword(data) {
+        return instanceNotAuthorized
+            .post(`account/forgot_password/`, data)
+            .then((response) => {
+                return response
+            })
+            .then(() => window.location.href = '/confirm-re-account')
+            .catch((error) => {
+                alert(error);
+                return error.response
+            })
+    },
+    postConfirmRestorePassword(data) {
+        return instanceNotAuthorized
+            .post(`account/forgot_password_complete/`, data)
+            .then((response) => {
+                return response
+            })
+            .then(() => window.location.href = '/signin')
             .catch((error) => {
                 alert(error);
                 return error.response
@@ -42,9 +66,9 @@ export const Account = {
             .post(`account/logout/`)
             .then((response) => {
                 localStorage.removeItem("token");
-                window.location.href = '/signin';
                 return response
             })
+            .then(() => window.location.href = '/signin')
             .catch((error) => {
                 alert(error);
                 return error.response
