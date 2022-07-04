@@ -59,6 +59,7 @@ export const registerAccount = (data) => (dispatch) => {
 export const loginAccount = (data) => (dispatch) => {
     Account.postLogin(data).then((response) => {
         dispatch(setLoginAccount({data: response.data}))
+        return response
     })
 };
 export const restorePassword = (data) => (dispatch) => {

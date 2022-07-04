@@ -88,3 +88,16 @@ export const Categories = {
             });
     }
 };
+
+export const Content = {
+    getMovies() {
+        return instanceNotAuthorized
+            .get(`movie/`)
+            .then((response) => {
+                return response
+            })
+            .catch((error) => {
+                return error.response
+            })
+    }
+};

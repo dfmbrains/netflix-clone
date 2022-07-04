@@ -48,7 +48,7 @@ const Header = ({page}) => {
                                 <ul>
                                     <li className="header__user_item">
                                         <i className="ri-user-fill"/>
-                                        <Link to={"/account"}>Аккаунт</Link>
+                                        <Link to={"/app/account"}>Аккаунт</Link>
                                     </li>
                                     <li onClick={() => logoutFunc()} className="header__user_item">
                                         <i className="ri-logout-box-r-line"/>

@@ -4,15 +4,22 @@ import preview from '../../assets/preview.png';
 import previewImg from '../../assets/previewImg.jpg';
 import {useDispatch, useSelector} from "react-redux";
 import {getCategories} from "../../store/reducers/categories";
+import {getMovies} from "../../store/reducers/content";
+import {useNavigate} from "react-router-dom";
 
 const HomeApp = () => {
 
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(getCategories())
+        dispatch(getCategories());
+        dispatch(getMovies())
     }, []);
     const {categories} = useSelector(({categories}) => categories);
+    const {movies} = useSelector(({content}) => content);
     const categoriesData = categories?.data;
+    const moviesData = movies?.data;
+    console.log(categoriesData, moviesData);
 
     return (
         <>
@@ -33,45 +40,33 @@ const HomeApp = () => {
             </section>
             <section className="rec">
                 <div className="container">
-                    {categoriesData
+                    {categoriesData && moviesData
                         ? categoriesData.map((category, categoryIdx) => (
                             <div key={categoryIdx} className="rec__box">
                                 <h2 className="rec__category">{category.title}</h2>
                                 <div className="rec__box_list">
-                                    <div className="rec__box_relative">
-                                        <div className="rec__box_item rec__box_item-first">
-                                            <img src={previewImg} alt=""/>
-                                            <div className="rec__box_item_info">
-                                                <div className="rec__box_item_row">
-                                                    <div className="rec__box_item_action">
-                                                        <i className="ri-play-fill"/>
-                                                    </div>
-                                                    <div className="rec__box_item_action">
-                                                        <i className="ri-heart-add-line"/>
-                                                    </div>
-                                                </div>
-                                                <h3 className="rec__box_item-title">Бриджертоны</h3>
-                                                <p className="rec__box_item-category">Comedy</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="rec__box_relative">
-                                        <div className="rec__box_item">
-                                            <img src={previewImg} alt=""/>
-                                            <div className="rec__box_item_info">
-                                                <div className="rec__box_item_row">
-                                                    <div className="rec__box_item_action">
-                                                        <i className="ri-play-fill"/>
-                                                    </div>
-                                                    <div className="rec__box_item_action">
-                                                        <i className="ri-heart-add-line"/>
+                                    {
+                                        moviesData.map((movie, movieIdx) => (
+                                            <div onClick={() => navigate(`${movie.id}`)} className="rec__box_relative">
+                                                <div
+                                                    className={movieIdx === 0 ? "rec__box_item rec__box_item-first" : "rec__box_item"}>
+                                                    <img src={previewImg} alt=""/>
+                                                    <div className="rec__box_item_info">
+                                                        <div className="rec__box_item_row">
+                                                            <div className="rec__box_item_action">
+                                                                <i className="ri-play-fill"/>
+                                                            </div>
+                                                            <div className="rec__box_item_action">
+                                                                <i className="ri-heart-add-line"/>
+                                                            </div>
+                                                        </div>
+                                                        <h3 className="rec__box_item-title">{movie.title}</h3>
+                                                        <p className="rec__box_item-category">{category.title}</p>
                                                     </div>
                                                 </div>
-                                                <h3 className="rec__box_item-title">Бриджертоны</h3>
-                                                <p className="rec__box_item-category">Comedy</p>
                                             </div>
-                                        </div>
-                                    </div>
+                                        ))
+                                    }
                                 </div>
                             </div>
                         )) : ''
