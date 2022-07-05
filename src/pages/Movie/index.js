@@ -17,7 +17,6 @@ const Movie = () => {
     }, []);
     const {movieById} = useSelector(({content}) => content);
     const movieData = movieById?.data;
-    console.log(movieData);
     //post comments
     const [comment, setComment] = useState('');
     const postCommentFunc = (e) => {

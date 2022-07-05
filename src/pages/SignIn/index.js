@@ -7,9 +7,6 @@ import {useDispatch} from "react-redux";
 import {loginAccount} from "../../store/reducers/account";
 
 const SignIn = () => {
-    // const location = useLocation();
-
-    // const fromPage = location.state?.from?.pathname || '/';
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
