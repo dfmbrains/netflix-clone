@@ -5,6 +5,7 @@ import previewImg from '../../assets/previewImg.jpg';
 import {useDispatch, useSelector} from "react-redux";
 import {postComments} from "../../store/reducers/comments";
 import {getMoviesById} from "../../store/reducers/content";
+import Like from "../../components/like";
 
 const Movie = () => {
     const {id} = useParams();
@@ -42,6 +43,12 @@ const Movie = () => {
                                     {player ? 'Close Player' : "Open Player!"}
                                     <i className="ri-play-fill"/>
                                 </button>
+                            </div>
+                        </div>
+                        <div className="movie__like">
+                            <div className={"movie__like_box"}>
+                                <Like id={movieData.id}/>
+                                <p>10</p>
                             </div>
                         </div>
                         <div className={"movie__box"}>

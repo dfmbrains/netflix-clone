@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-between;
     box-shadow: #0a0a0a 0 0 8px;
-    margin: 0 0 150px;
+    margin: 0 0 50px;
   }
 
   &__img {
@@ -69,7 +69,7 @@
   &__comments {
     width: 38%;
     height: 500px;
-    padding: 0.5% 2% 0 0;
+    padding: 0.5% 1% 0 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -85,6 +85,24 @@
       display: flex;
       flex-direction: column;
       row-gap: 10px;
+      padding: 0 1% 0 0;
+
+      &::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: #232323;
+        height: 0;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 11px;
+        background-color: #414141;
+        height: 0;
+      }
+
     }
 
     &_item {
@@ -132,6 +150,43 @@
       width: 30%;
       height: 43px;
       border: 1px solid #FFFFFF;
+    }
+  }
+
+  &__like {
+    margin: 0 0 150px;
+    display: flex;
+    align-items: center;
+
+    &_box {
+      background: #141414;
+      border-radius: 50%;
+      border: 1px solid #949494;
+      width: 90px;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+
+      i {
+        font-size: 64px;
+        color: white;
+      }
+
+      &:hover {
+        border: 1px solid #ffffff;
+      }
+
+      p {
+        position: absolute;
+        top: 47%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 14px;
+      }
     }
   }
 }

@@ -1,0 +1,61 @@
+.account {
+  height: 100vh;
+  position: relative;
+
+  &__title {
+    color: white;
+    text-align: center;
+    font-size: 36px;
+    margin: 0 0 30px;
+  }
+
+  &__box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25%;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      row-gap: 15px;
+      width: 100%;
+    }
+
+    input {
+      border: 1px solid white;
+      outline: none;
+      width: 100%;
+      background: #333333;
+      border-radius: 4px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 130%;
+      color: #8C8C8C;
+      padding: 15px 10px 15px 20px;
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      background: #f90914;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.55);
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 16px;
+      text-align: center;
+      letter-spacing: 0.1px;
+      color: #FFFFFF;
+      padding: 16px 0 17px;
+      transition: 0.2s;
+      margin: 5px 0 0;
+
+      &:hover {
+        background: #d20914;
+        transition: 0.2s;
+      }
+    }
+  }
+}

@@ -6,10 +6,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {getCategories} from "../../store/reducers/categories";
 import {getMovies} from "../../store/reducers/content";
 import {useNavigate} from "react-router-dom";
+import Like from "../../components/like";
 
 const HomeApp = () => {
 
     const navigate = useNavigate();
+
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getCategories());
@@ -19,7 +21,6 @@ const HomeApp = () => {
     const {movies} = useSelector(({content}) => content);
     const categoriesData = categories?.data;
     const moviesData = movies?.data;
-    console.log(categoriesData, moviesData);
 
     return (
         <>
@@ -47,18 +48,19 @@ const HomeApp = () => {
                                 <div className="rec__box_list">
                                     {
                                         moviesData.map((movie, movieIdx) => (
-                                            <div key={movieIdx} onClick={() => navigate(`movie/${movie.id}`)}
-                                                 className="rec__box_relative">
+                                            <div key={movieIdx} className="rec__box_relative">
                                                 <div
                                                     className={movieIdx === 0 ? "rec__box_item rec__box_item-first" : "rec__box_item"}>
-                                                    <img src={previewImg} alt=""/>
+                                                    <img onClick={() => navigate(`movie/${movie.id}`)} src={previewImg}
+                                                         alt=""/>
                                                     <div className="rec__box_item_info">
                                                         <div className="rec__box_item_row">
-                                                            <div className="rec__box_item_action">
+                                                            <div onClick={() => navigate(`movie/${movie.id}`)}
+                                                                 className="rec__box_item_action">
                                                                 <i className="ri-play-fill"/>
                                                             </div>
                                                             <div className="rec__box_item_action">
-                                                                <i className="ri-heart-add-line"/>
+                                                                <Like id={movie.id}/>
                                                             </div>
                                                         </div>
                                                         <h3 className="rec__box_item-title">{movie.title}</h3>

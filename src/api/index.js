@@ -73,6 +73,18 @@ export const Account = {
                 alert(error);
                 return error.response
             })
+    },
+    postChangePassword(data) {
+        return instance
+            .post(`account/change_password/`, data)
+            .then((response) => {
+                return response
+            })
+            .then(() => window.location.href = '/app')
+            .catch((error) => {
+                alert(error);
+                return error.response
+            })
     }
 };
 
@@ -125,7 +137,21 @@ export const Comments = {
     },
     postComments(data) {
         return instanceNotAuthorized
-            .post(`review/`)
+            .post(`review/`, data)
+            .then((response) => {
+                return response
+            })
+            .catch((error) => {
+                alert(error);
+                return error.response
+            })
+    }
+};
+
+export const Likes = {
+    postLikes(id) {
+        return instance
+            .post(`review/${id}/like/`)
             .then((response) => {
                 return response
             })

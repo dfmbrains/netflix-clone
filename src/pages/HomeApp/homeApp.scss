@@ -100,7 +100,6 @@
       top: 50%;
       transform: translate(-50%, -50%);
       transition: 0.3s;
-      cursor: pointer;
       z-index: 1;
 
 
@@ -125,6 +124,7 @@
 
       img {
         width: 100%;
+        cursor: pointer;
       }
 
       &_info {
