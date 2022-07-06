@@ -2,7 +2,8 @@ import {Comments} from "../../api";
 
 const initialState = {
     comments: {},
-    commentsPost: {}
+    commentsPost: {},
+    likeComment: {}
 };
 
 const comments = (state = initialState, action) => {
@@ -19,6 +20,12 @@ const comments = (state = initialState, action) => {
                 commentsPost: action.data,
             };
         }
+        case "POST_LIKE_COMMENT": {
+            return {
+                ...state,
+                likeComment: action.data,
+            };
+        }
         default:
             return state
     }
@@ -26,6 +33,7 @@ const comments = (state = initialState, action) => {
 
 export const setGetComments = (data) => ({type: "GET_COMMENTS", data});
 export const setPostComments = (data) => ({type: "POST_COMMENTS", data});
+export const setLikeComment = (data) => ({type: "POST_LIKE_COMMENT", data});
 
 export const getComments = () => (dispatch) => {
     Comments.getComments().then((response) => {
@@ -35,6 +43,11 @@ export const getComments = () => (dispatch) => {
 export const postComments = (data) => (dispatch) => {
     Comments.postComments(data).then((response) => {
         dispatch(setPostComments({data: response.data}))
+    })
+};
+export const postLikeComment = (id) => (dispatch) => {
+    Comments.postLikeComment(id).then((response) => {
+        dispatch(setLikeComment({data: response.data}))
     })
 };
 

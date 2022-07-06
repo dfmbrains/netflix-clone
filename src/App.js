@@ -12,6 +12,7 @@ import RequireAuth from "./components/hoc/RequireAuth";
 import RestorePassword from "./pages/RestorePassword";
 import Account from "./pages/Account";
 import Movie from "./pages/Movie";
+import Admin from "./pages/Admin";
 
 function App() {
     const location = useLocation();
@@ -31,6 +32,7 @@ function App() {
                 <Route index element={<HomeApp/>}/>
                 <Route path={"account"} element={<Account/>}/>
                 <Route path={"movie/:id"} element={<Movie/>}/>
+                <Route path={"admin"} element={<Admin/>}/>
             </Route>
             <Route path={"/signin"} element={<SignIn/>}/>
             <Route path={"/signup"} element={<SignUp/>}/>

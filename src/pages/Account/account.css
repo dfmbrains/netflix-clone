@@ -21,7 +21,7 @@
   row-gap: 15px;
   width: 100%;
 }
-.account__box input {
+.account__box input, .account__box select {
   border: 1px solid white;
   outline: none;
   width: 100%;

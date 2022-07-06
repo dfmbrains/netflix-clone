@@ -27,13 +27,13 @@ const Header = ({page}) => {
                                 <NavLink to={"/app"}>Главная</NavLink>
                             </li>
                             <li>
-                                <NavLink to={"/app/bests"}>Лучшие</NavLink>
+                                <NavLink to={"#"}>Лучшие</NavLink>
                             </li>
                             <li>
-                                <NavLink to={"/app/latest"}>Последние</NavLink>
+                                <NavLink to={"#"}>Последние</NavLink>
                             </li>
                             <li>
-                                <NavLink to={"/app/my-list"}>Мой список</NavLink>
+                                <NavLink to={"#"}>Мой список</NavLink>
                             </li>
                         </ul>
                     </div>

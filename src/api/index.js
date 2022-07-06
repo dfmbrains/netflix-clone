@@ -121,6 +121,29 @@ export const Content = {
             .catch((error) => {
                 return error.response
             })
+    },
+    postMovie(data) {
+        return instance
+            .post(`movie/main/`, data)
+            .then((response) => {
+                alert('Created!');
+                return response
+            })
+            .catch((error) => {
+                alert(error);
+                return error.response
+            })
+    },
+    postFavorites(id) {
+        return instance
+            .post(`movie/main/${id}/favorite/`)
+            .then((response) => {
+                return response
+            })
+            .catch((error) => {
+                alert(error);
+                return error.response
+            })
     }
 };
 
@@ -145,13 +168,10 @@ export const Comments = {
                 alert(error);
                 return error.response
             })
-    }
-};
-
-export const Likes = {
-    postLikes(id) {
+    },
+    postLikeComment(id) {
         return instance
-            .post(`review/${id}/like/`)
+            .post(`/review/${id}/like/`)
             .then((response) => {
                 return response
             })

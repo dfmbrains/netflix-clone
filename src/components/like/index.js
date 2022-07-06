@@ -1,17 +1,18 @@
 import React from 'react';
-import {postLikes} from "../../store/reducers/likes";
 import {useDispatch} from "react-redux";
+import {postFavorite} from "../../store/reducers/content";
 
 const Like = ({id}) => {
 
     const dispatch = useDispatch();
     const likeFunc = (e) => {
         e.preventDefault();
-        dispatch(postLikes(id))
+        dispatch(postFavorite(id))
     };
 
     return (
-        <i onClick={(e) => likeFunc(e)} className="ri-heart-add-line"/>
+        <i onClick={(e) => likeFunc(e)} className={"ri-heart-add-line"}/>
+        //ri-heart-add-fill
     );
 };
 

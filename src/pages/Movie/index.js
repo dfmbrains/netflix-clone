@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import './movie.css';
 import {useParams} from "react-router";
-import previewImg from '../../assets/previewImg.jpg';
 import {useDispatch, useSelector} from "react-redux";
-import {postComments} from "../../store/reducers/comments";
+import {postComments, postLikeComment} from "../../store/reducers/comments";
 import {getMoviesById} from "../../store/reducers/content";
 import Like from "../../components/like";
 
@@ -25,9 +24,11 @@ const Movie = () => {
             review: comment,
             product: id
         };
-        // dispatch(postComments(commentData))
+        dispatch(postComments(commentData))
     };
-    console.log(movieData)
+    const postLikeCommentsFunc = (reviewIdx) => {
+        dispatch(postLikeComment(reviewIdx))
+    };
     return (
         <section className="movie">
             <div className="container">
@@ -50,7 +51,6 @@ const Movie = () => {
                         <div className="movie__like">
                             <div className={"movie__like_box"}>
                                 <Like id={movieData.id}/>
-                                <p>{movieData.total_rating}</p>
                             </div>
                         </div>
                         <div className={"movie__box"}>
@@ -63,12 +63,13 @@ const Movie = () => {
                                 <h2 className="movie__comments_title">Comments</h2>
                                 <div className="movie__comments_box">
                                     {movieData?.reviews.map((review, idx) => (
-                                        <div className="movie__comments_item">
+                                        <div key={idx} className="movie__comments_item">
                                             <div className="movie__comments_item-box">
                                                 <h3>{review.user}</h3>
                                                 <p className="movie__comments_item-text">{review.review}</p>
                                                 <div className={"movie__comments_item-like"}>
-                                                    <i className="ri-heart-add-line"/>
+                                                    <i onClick={() => postLikeCommentsFunc(review.id)}
+                                                       className="ri-heart-add-line"/>
                                                     <p>{review.like}</p>
                                                 </div>
                                             </div>

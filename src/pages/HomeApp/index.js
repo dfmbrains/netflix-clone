@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import './homeApp.css';
 import preview from '../../assets/preview.png';
 import previewImg from '../../assets/previewImg.jpg';
@@ -18,10 +18,21 @@ const HomeApp = () => {
         dispatch(getMovies())
     }, []);
     const {categories} = useSelector(({categories}) => categories);
-    const {movies} = useSelector(({content}) => content);
     const categoriesData = categories?.data?.results;
+    const {movies} = useSelector(({content}) => content);
     const moviesData = movies?.data?.results;
-    console.log(moviesData);
+
+    const [dramaData, setDramaData] = useState([]);
+    const [horrorData, setHorrorData] = useState([]);
+    const [actionData, setActionData] = useState([]);
+
+    useEffect(() => {
+        if (moviesData && categoriesData) {
+            setDramaData(moviesData.filter(item => item.category.toLowerCase() === 'drama'));
+            setHorrorData(moviesData.filter(item => item.category.toLowerCase() === 'horror'));
+            setActionData(moviesData.filter(item => item.category.toLowerCase() === 'action'))
+        }
+    }, [moviesData, categoriesData]);
 
     return (
         <>
