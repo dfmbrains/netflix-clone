@@ -10,9 +10,16 @@
 
   &__img {
     width: 45%;
+    position: relative;
+    overflow: hidden;
 
     img {
-      width: 100%;
+      min-width: 100%;
+      min-height: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 
@@ -112,21 +119,39 @@
         justify-content: flex-end;
       }
 
-      div {
+      &-like {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        column-gap: 3px;
+        right: 10px;
+        bottom: 10px;
+
+        i {
+          cursor: pointer;
+          &:hover {
+            color: red;
+          }
+        }
+      }
+
+      &-box {
         background: #FFFFFF;
         padding: 2% 2% 2.2%;
         border-radius: 10px;
         width: 80%;
         color: #141414;
         line-height: 120%;
+        position: relative;
       }
 
-      p {
+      &-text {
         margin: 5px 0 0;
+        font-size: 14px;
       }
 
       h3 {
-        font-size: 18px;
+        font-size: 16px;
         line-height: 100%;
         display: inline;
         border-bottom: 0.5px solid #000000;

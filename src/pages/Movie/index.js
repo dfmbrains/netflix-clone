@@ -27,13 +27,16 @@ const Movie = () => {
         };
         // dispatch(postComments(commentData))
     };
+    console.log(movieData)
     return (
         <section className="movie">
             <div className="container">
                 {movieData
                     ? <>
                         <div className="movie__box">
-                            <img className="movie__img" src={previewImg} alt=""/>
+                            <div className="movie__img">
+                                <img src={movieData.poster} alt=""/>
+                            </div>
                             <div className="movie__info">
                                 <h1 className="movie__title">{movieData.title} <span
                                     style={{fontSize: "18px"}}>{movieData.year}</span></h1>
@@ -47,7 +50,7 @@ const Movie = () => {
                         <div className="movie__like">
                             <div className={"movie__like_box"}>
                                 <Like id={movieData.id}/>
-                                <p>10</p>
+                                <p>{movieData.total_rating}</p>
                             </div>
                         </div>
                         <div className={"movie__box"}>
@@ -59,41 +62,18 @@ const Movie = () => {
                             <div className="movie__comments">
                                 <h2 className="movie__comments_title">Comments</h2>
                                 <div className="movie__comments_box">
-                                    <div className="movie__comments_item">
-                                        <div>
-                                            <h3>John</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur,
-                                                libero!</p>
+                                    {movieData?.reviews.map((review, idx) => (
+                                        <div className="movie__comments_item">
+                                            <div className="movie__comments_item-box">
+                                                <h3>{review.user}</h3>
+                                                <p className="movie__comments_item-text">{review.review}</p>
+                                                <div className={"movie__comments_item-like"}>
+                                                    <i className="ri-heart-add-line"/>
+                                                    <p>{review.like}</p>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="movie__comments_item">
-                                        <div>
-                                            <h3>John</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur,
-                                                libero!</p>
-                                        </div>
-                                    </div>
-                                    <div className="movie__comments_item">
-                                        <div>
-                                            <h3>John</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur,
-                                                libero!</p>
-                                        </div>
-                                    </div>
-                                    <div className="movie__comments_item">
-                                        <div>
-                                            <h3>John</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur,
-                                                libero!</p>
-                                        </div>
-                                    </div>
-                                    <div className="movie__comments_item">
-                                        <div>
-                                            <h3>John</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur,
-                                                libero!</p>
-                                        </div>
-                                    </div>
+                                    ))}
                                 </div>
                                 <form onSubmit={(e) => postCommentFunc(e)} className={"movie__comments_form"}>
                                     <input onChange={(e) => setComment(e.target.value)}

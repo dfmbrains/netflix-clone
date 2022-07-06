@@ -19,8 +19,9 @@ const HomeApp = () => {
     }, []);
     const {categories} = useSelector(({categories}) => categories);
     const {movies} = useSelector(({content}) => content);
-    const categoriesData = categories?.data;
-    const moviesData = movies?.data;
+    const categoriesData = categories?.data?.results;
+    const moviesData = movies?.data?.results;
+    console.log(moviesData);
 
     return (
         <>
@@ -51,8 +52,10 @@ const HomeApp = () => {
                                             <div key={movieIdx} className="rec__box_relative">
                                                 <div
                                                     className={movieIdx === 0 ? "rec__box_item rec__box_item-first" : "rec__box_item"}>
-                                                    <img onClick={() => navigate(`movie/${movie.id}`)} src={previewImg}
-                                                         alt=""/>
+                                                    <div className={"rec__box_img"}>
+                                                        <img onClick={() => navigate(`movie/${movie.id}`)}
+                                                             src={movie.poster} alt=""/>
+                                                    </div>
                                                     <div className="rec__box_item_info">
                                                         <div className="rec__box_item_row">
                                                             <div onClick={() => navigate(`movie/${movie.id}`)}

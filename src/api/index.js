@@ -104,7 +104,7 @@ export const Categories = {
 export const Content = {
     getMovies() {
         return instanceNotAuthorized
-            .get(`movie/`)
+            .get(`movie/main/`)
             .then((response) => {
                 return response
             })
@@ -114,7 +114,7 @@ export const Content = {
     },
     getMovieById(id) {
         return instanceNotAuthorized
-            .get(`movie/${id}/`)
+            .get(`movie/main/${id}/`)
             .then((response) => {
                 return response
             })

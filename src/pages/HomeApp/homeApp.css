@@ -68,6 +68,20 @@
   font-weight: bold;
   margin: 0 0 1em;
 }
+.rec__box_img {
+  width: 100%;
+  height: 140px;
+  position: relative;
+  overflow: hidden;
+}
+.rec__box_img img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 100%;
+  min-width: 100%;
+}
 .rec__box_list {
   display: flex;
 }
@@ -77,7 +91,7 @@
   height: 8.8vw;
 }
 .rec__box_relative:not(:last-child) {
-  margin: 0 0.4vw 0 0;
+  margin: 0 0.8vw 0 0;
 }
 .rec__box_item {
   width: 100%;
@@ -105,7 +119,6 @@
   transition: 0.3s;
 }
 .rec__box_item img {
-  width: 100%;
   cursor: pointer;
 }
 .rec__box_item_info {
