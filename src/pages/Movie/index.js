@@ -27,7 +27,8 @@ const Movie = () => {
         dispatch(postComments(commentData))
     };
     const postLikeCommentsFunc = (reviewIdx) => {
-        dispatch(postLikeComment(reviewIdx))
+        dispatch(postLikeComment(reviewIdx));
+        dispatch(getMoviesById(id))
     };
     return (
         <section className="movie">
